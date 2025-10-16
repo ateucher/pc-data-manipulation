@@ -12,14 +12,22 @@ mtcars |>
     across(where(is.numeric), list(mean = mean, sd = sd))
   )
 
-# For all numeric columns in penguins calculate the mean and standard deviation
 penguins |>
   summarize(
     across(where(is.numeric), list(mean = mean, sd = sd))
   )
 
-# Fix this to make it remove NA values
 
 # Calculate median of bill measurements for each species in the built-in penguins dataset
 
+penguins |>
+  group_by(species) |>
+  summarize(across(starts_with("bill"), median))
+
+penguins |>
+  group_by(species) |>
+  summarize(across(starts_with("bill"), \(x) median(x, na.rm = TRUE)))
+
 # Round all of the numeric colums in the `PortalData/SiteandMethods/Portal_UTMCoords.csv` dataset to 2 decimal places
+plots |>
+  mutate(across(where(is.double), \(x) round(x, digits = 2)))
