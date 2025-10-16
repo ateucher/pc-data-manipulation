@@ -3,7 +3,8 @@ library(janitor)
 library(readr)
 
 rodents <- read_csv("PortalData/Rodents/Portal_rodent.csv") |>
-  clean_names()
+  clean_names() |>
+  filter(period > 0)
 
 # How many individuals of each species were caught in 1995?
 
@@ -17,6 +18,13 @@ rodents |>
 rodents |>
   filter(year == 1995) |>
   summarize(count = n_distinct(id), .by = species)
+
+# What date had the highest number of individual rodents caught?
+rodents |>
+  mutate(date = as.Date(paste(year, month, day, sep = "-"))) |>
+  group_by(date) |>
+  summarize(count = n_distinct(id)) |>
+  slice_max(order_by = count, n = 1)
 
 # Calculate the percent difference in weight from the species' average weight for each capture.
 rodents <- rodents |>
