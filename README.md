@@ -1,5 +1,7 @@
 # Exercises for Parks Canada Intermediate R Workshop
 
+Workshop website: <https://andyteucher.ca/pc-intermediate-r/>
+
 ## Advanced data manipulation with `dplyr` and `tidyr`
 
 ### Setup
@@ -31,5 +33,3 @@ download_observations(".")
 
 - The `.R` files in the root directory contain starter code for the exercises
 - The `solutions/` directory contains the same files with solutions to the exercises. Don't peek unless you're really stuck!
-
-Workshop website: <https://andyteucher.ca/pc-intermediate-r/>
