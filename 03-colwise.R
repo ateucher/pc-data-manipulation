@@ -1,4 +1,5 @@
 library(dplyr)
+library(readr)
 
 # calculate mean of all numeric columns
 mtcars |>
@@ -20,6 +21,10 @@ penguins |>
 
 # Fix this to make it remove NA values
 
-# Calculate median of bill measurements for each species in the built-in penguins dataset
+# Calculate maximum of all bill measurements for each species in the built-in penguins dataset
+
+# Calculate the median of hind-foot length (`hfl`) and weight (`wgt`) for each species in `rodents`, ignoring `NA` values.
 
 # Round all of the numeric colums in the `PortalData/SiteandMethods/Portal_UTMCoords.csv` dataset to 2 decimal places
+
+rodents <- read_csv("PortalData/Rodents/Portal_rodent.csv")

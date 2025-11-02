@@ -64,7 +64,6 @@ plant_census_dates <- read_csv(
   na = c("unknown", "none")
 )
 
-
 plant_census_dates <- plant_census_dates |>
   filter(!if_any(matches("(day)|(month)$"), is.na)) |>
   mutate(
