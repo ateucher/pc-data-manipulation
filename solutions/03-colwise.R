@@ -1,3 +1,4 @@
+library(readr)
 library(dplyr)
 
 # calculate mean of all numeric columns
